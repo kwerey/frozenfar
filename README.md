@@ -14,6 +14,5 @@ See `docs/leaflet-setup.md`
 
 # To do:
 
-1. display whether committing sacrifices or not with a different icon
-2. show Speaker name and population for each town some way that is nicer formatted
-3. look into plotting distance between towns - add roads?
+- different icons for different places, depending on purpose/affiliation?
+- look into plotting distance between towns - add roads?
