@@ -207,7 +207,7 @@ var landmarks = [
         "type": "Feature",
         "properties": {
             "name": "Black Cabin",
-            "fact": "???",
+            "fact": "Macreadus is working on inventions to end the Rime, Copper worries for him."
             "affiliation": "[UNKNOWN]"
         },
         "geometry": {
