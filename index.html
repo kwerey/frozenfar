@@ -1,0 +1,77 @@
+<!doctype html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Mapping the Frozenfar</title>
+  <meta name="description" content="Mapping the Frozenfar: Tinkering with Leaflet.js maps.">
+  <meta name="author" content="nikobee">
+
+  <meta property="og:title" content="Mapping the Frozenfar">
+  <meta property="og:type" content="website">
+  <meta property="og:description" content="Mapping the Frozenfar: Tinkering with Leaflet.js maps.">
+
+  <!--
+  <meta property="og:image" content="image.png">
+
+  <link rel="icon" href="/favicon.ico">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png">
+
+  <link rel="stylesheet" href="css/styles.css?v=1.0">
+  -->
+  <style> 
+
+<style>
+    body { margin:0; padding:0; }
+    body, table, tr, td, th, div, h1, h2, input { font-family: "Calibri", "Trebuchet MS", "Ubuntu", Serif; font-size: 11pt; }
+    #map { position:absolute; height: 80%; width: 60%; } /* full size */
+    .ctl {
+        padding: 2px 10px 2px 10px;
+        background: white;
+        background: rgba(255,255,255,0.9);
+        box-shadow: 0 0 15px rgba(0,0,0,0.2);
+        border-radius: 5px;
+        text-align: right;
+    }
+    .title {
+        font-size: 18pt;
+        font-weight: bold;
+    }
+    .src {
+        font-size: 10pt;
+    }
+  </style>
+
+
+</head>
+
+<body>
+
+  <div id="map"></div>
+
+  <div id="legend">
+      <p> Click on the blue markers to get them to show you stuff</p>
+  </div>
+</body>
+
+<footer>
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css"
+    integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A=="
+    crossorigin=""/>
+
+    <!-- Make sure you put this AFTER Leaflet's CSS -->
+    <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"
+    integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA=="
+    crossorigin=""></script>
+
+    <script src="js/GeoJSON.js"></script>
+</footer>
+
+</html>
+
+
+
