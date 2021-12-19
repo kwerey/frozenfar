@@ -262,6 +262,18 @@ var landmarks = [
             "type": "Point",
             "coordinates": [ -0.514498, 52.421398 ]
         }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Revel\'s End",
+            "fact": "A prison at the end of the world.",
+            "affiliation": "[UNKNOWN]"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [ 0.038455, 53.085782 ]
+        }
     }
 ]
 

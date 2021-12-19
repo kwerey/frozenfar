@@ -193,10 +193,6 @@ mappbox exaplining web maps: https://docs.mapbox.com/help/getting-started/web-ap
 http://132.72.155.230:3838/js/geojson-1.html
 
 
-TOOLS:
-http://bboxfinder.com/#-0.897510,-0.897510,53.231020,53.231020
-
-
 NOT USEFUL BUT COOL:
 
 mildly fascinating: https://www.geospatialworld.net/article/the-great-trigonometrical-survey-of-india/
@@ -210,12 +206,3 @@ What i understand that I need to do:
 2. provide a gdal translate command that specifies the spatial reference system im using (projection or similar), this creates a .vrt text file with metadata about my image
 3. possibly warp my image to my desired projection (this should prolly not matter so much for a tiny projection!)
 4. chop the image into tiles
-
-
-----
-
-questions: 
-- what projection is suitable? i could use a non-geographic projection that just puts 0,0 at the middle of the image and uses entirely consistent units, but its harder to find examples that use this. so i could also just pretend icewind dale is in Cambridge and grab fake coordinates from there.
-
-- how big is the map? it seems like its about 100miles across and 70 miles up/down.
-
