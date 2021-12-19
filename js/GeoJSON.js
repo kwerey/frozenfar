@@ -62,7 +62,7 @@ var tenTowns = [
             "sacrifices": true,
             "fact": "hole not included in cost of purchase.",
             "population": 50,
-            "speaker": "Edgra Dermoot"
+            "speaker": "Edgra Durmoot"
         },
         "geometry": {
             "type": "Point",
@@ -75,7 +75,7 @@ var tenTowns = [
             "sacrifices": false,
             "fact": "watch out for Speakers in snowdrifts.",
             "population": 150,
-            "speaker": "Crannock? Drunk Dragonborn."
+            "speaker": "Trovus the Very Sober Dragonborn."
         },
         "geometry": {
             "type": "Point",
@@ -88,7 +88,7 @@ var tenTowns = [
             "sacrifices": false,
             "fact": "where the Speaker is definitely alive.",
             "population": 100,
-            "speaker": "Sir Definitely Still Alive"
+            "speaker": "Sir Crannoc the Definitely Still Alive"
         },
         "geometry": {
             "type": "Point",
@@ -238,6 +238,30 @@ var landmarks = [
             "type": "Point",
             "coordinates": [ -0.150343, 52.789661 ]
         }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Lost Spire of Netheril",
+            "fact": "Maybe here... we can finally see the stars?",
+            "affiliation": "[UNKNOWN]"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [ 0.640013, 52.77122 ]
+        }
+    },
+    {
+        "type": "Feature",
+        "properties": {
+            "name": "Former site of Mossclaw Village",
+            "fact": "Who knows what lives here now, at the foot of the Spine of the World?",
+            "affiliation": "[UNKNOWN]"
+        },
+        "geometry": {
+            "type": "Point",
+            "coordinates": [ -0.514498, 52.421398 ]
+        }
     }
 ]
 
@@ -294,8 +318,8 @@ var baseMaps = {
 var overlayMaps = {
     "Ten Towns": tenTownsData,
     "Landmarks": landmarkData,
-    "Coordinate Finder": utility,
-    "Roads": roadsData
+    "Coordinate Finder": utility
+//    "Roads": roadsData // these ones are not ready for prime time yet
 };
 
 // Add layers to map
