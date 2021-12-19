@@ -21,7 +21,7 @@ var tenTowns = [
         "properties": {
             "name": "Goodmead",
             "sacrifices": true,
-            "fact": "<b>Goodmead:</b> it's good mead, brent!",
+            "fact": "it's good mead, brent!",
             "population": 100,
             "speaker": "[pending byelection, maybe Olivessa?]"      
         },
