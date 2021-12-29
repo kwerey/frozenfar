@@ -159,8 +159,6 @@ var roads = [{
         "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
     }];
 
-
-
 // these are already apparently a layergroup, dont need to be defined as one! https://leafletjs.com/examples/geojson/
 var roadsData = L.geoJSON(roads)
 
@@ -207,7 +205,7 @@ var landmarks = [
         "type": "Feature",
         "properties": {
             "name": "Black Cabin",
-            "fact": "Macreadus is working on inventions to end the Rime, Copper worries for him."
+            "fact": "Fellow called Macreadus is out here working on inventions to end the Rime.",
             "affiliation": "[UNKNOWN]"
         },
         "geometry": {
@@ -338,3 +336,14 @@ var overlayMaps = {
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 L.control.scale().addTo(map);
+
+L.Routing.control({
+    waypoints: [
+        L.latLng(52.421398, -0.514498),
+        L.latLng(52.789661, -0.150343)
+    ],
+    routeWhileDragging: true
+}).addTo(map);
+
+
+console.log(JSON.stringify(landmarkData));
