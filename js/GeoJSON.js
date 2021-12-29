@@ -14,7 +14,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.095719, 52.646502 ]
+            "coordinates": [-0.095719, 52.646502]
         }
     }, {
         "type": "Feature",
@@ -23,11 +23,11 @@ var tenTowns = [
             "sacrifices": true,
             "fact": "it's good mead, brent!",
             "population": 100,
-            "speaker": "[pending byelection, maybe Olivessa?]"      
+            "speaker": "[pending byelection, maybe Olivessa?]"
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.067326, 52.587174 ]
+            "coordinates": [0.067326, 52.587174]
         }
     }, {
         "type": "Feature",
@@ -40,7 +40,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.178579, 52.678121 ]
+            "coordinates": [-0.178579, 52.678121]
         }
     }, {
         "type": "Feature",
@@ -53,7 +53,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.261173, 52.618193 ]
+            "coordinates": [0.261173, 52.618193]
         }
     }, {
         "type": "Feature",
@@ -66,7 +66,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.027086, 52.554846 ]
+            "coordinates": [-0.027086, 52.554846]
         }
     }, {
         "type": "Feature",
@@ -79,7 +79,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.335297, 52.755406 ]
+            "coordinates": [0.335297, 52.755406]
         }
     }, {
         "type": "Feature",
@@ -92,7 +92,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.266663, 52.701312 ]
+            "coordinates": [0.266663, 52.701312]
         }
     }, {
         "type": "Feature",
@@ -105,7 +105,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.03828, 52.779484 ]
+            "coordinates": [-0.03828, 52.779484]
         }
     }, {
         "type": "Feature",
@@ -118,7 +118,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.210035, 52.703097 ]
+            "coordinates": [-0.210035, 52.703097]
         }
     }, {
         "type": "Feature",
@@ -131,7 +131,7 @@ var tenTowns = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.010645, 52.758745 ]
+            "coordinates": [0.010645, 52.758745]
         }
     }
 ];
@@ -139,7 +139,7 @@ var tenTowns = [
 // L.geoJSON is already an extension of L.layergroup, doesnt need to be defined as one! https://leafletjs.com/examples/geojson/
 var tenTownsData = L.geoJSON(tenTowns, {
     style: function (feature) {
-        return {color: feature.properties.color};
+        return { color: feature.properties.color };
     }
 }).bindPopup(function (layer) {
     headline = '<b>' + layer.feature.properties.name + '</b>: ' + layer.feature.properties.fact;
@@ -152,12 +152,12 @@ var tenTownsData = L.geoJSON(tenTowns, {
 
 // Roads - not sure if we'll do anything with this, but let's see
 var roads = [{
-        "type": "LineString",
-        "coordinates": [[ 0.2637, 52.6180 ], [ 0.2248, 52.6128 ], [ 0.2059, 52.6176 ], [0.1294, 52.6266], [ -0.0934, 52.6472] ]
-    }, {
-        "type": "LineString",
-        "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
-    }];
+    "type": "LineString",
+    "coordinates": [[0.2637, 52.6180], [0.2248, 52.6128], [0.2059, 52.6176], [0.1294, 52.6266], [-0.0934, 52.6472]]
+}, {
+    "type": "LineString",
+    "coordinates": [[-105, 40], [-110, 45], [-115, 55]]
+}];
 
 // these are already apparently a layergroup, dont need to be defined as one! https://leafletjs.com/examples/geojson/
 var roadsData = L.geoJSON(roads)
@@ -174,7 +174,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.244356, 52.809421 ]
+            "coordinates": [0.244356, 52.809421]
         }
     },
     {
@@ -186,7 +186,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.3769, 52.693847 ]
+            "coordinates": [0.3769, 52.693847]
         }
     },
     {
@@ -198,7 +198,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.355677, 52.552373 ]
+            "coordinates": [0.355677, 52.552373]
         }
     },
     {
@@ -210,7 +210,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.085081, 52.873548 ]
+            "coordinates": [0.085081, 52.873548]
         }
     },
     {
@@ -222,7 +222,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.251304, 52.560898 ]
+            "coordinates": [-0.251304, 52.560898]
         }
     },
     {
@@ -234,7 +234,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.150343, 52.789661 ]
+            "coordinates": [-0.150343, 52.789661]
         }
     },
     {
@@ -246,7 +246,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.640013, 52.77122 ]
+            "coordinates": [0.640013, 52.77122]
         }
     },
     {
@@ -258,7 +258,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ -0.514498, 52.421398 ]
+            "coordinates": [-0.514498, 52.421398]
         }
     },
     {
@@ -270,7 +270,7 @@ var landmarks = [
         },
         "geometry": {
             "type": "Point",
-            "coordinates": [ 0.038455, 53.085782 ]
+            "coordinates": [0.038455, 53.085782]
         }
     }
 ]
@@ -278,7 +278,7 @@ var landmarks = [
 // these are already apparently a layergroup, dont need to be defined as one! https://leafletjs.com/examples/geojson/
 var landmarkData = L.geoJSON(landmarks, {
     style: function (feature) {
-        return {color: feature.properties.color};
+        return { color: feature.properties.color };
     }
 }).bindPopup(function (layer) {
     headline = '<b>' + layer.feature.properties.name + '</b>: ' + layer.feature.properties.fact;
@@ -288,16 +288,16 @@ var landmarkData = L.geoJSON(landmarks, {
 })
 
 //Coordinate Finder
-var marker = L.marker([52.75, 0.8 ], {
+var marker = L.marker([52.75, 0.8], {
     draggable: true,
 });
 
 marker.bindPopup('Drag this marker!').openPopup();
-marker.on('dragend', function(e) {
+marker.on('dragend', function (e) {
     marker.getPopup().setContent(marker.getLatLng().toString()).openOn(map);
 });
 
-var utility = L.layerGroup([ marker]);
+var utility = L.layerGroup([marker]);
 
 // Define the base layer and map, then configure display.
 
@@ -311,7 +311,7 @@ var baseLayer = L.tileLayer('./raw-icewind-dale-map/{z}/{x}/{y}.png', {
 
 //Creating the Map
 var map = L.map('map', {
-    center: [52.75, 0.3 ],
+    center: [52.75, 0.3],
     zoom: 10,
     minZoom: 9,
     maxZoom: 13,
@@ -319,7 +319,7 @@ var map = L.map('map', {
 });
 
 // Fit to overlay bounds (SW and NE points with (lat, lon))     
-map.fitBounds([[ 52.205, 1.575447 ], [53.23102, -0.89751] ]);
+map.fitBounds([[52.205, 1.575447], [53.23102, -0.89751]]);
 
 var baseMaps = {
     "The Frozenfar": baseLayer
@@ -329,7 +329,7 @@ var overlayMaps = {
     "Ten Towns": tenTownsData,
     "Landmarks": landmarkData,
     "Coordinate Finder": utility
-//    "Roads": roadsData // these ones are not ready for prime time yet
+    //    "Roads": roadsData // these ones are not ready for prime time yet
 };
 
 // Add layers to map
@@ -337,13 +337,108 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 L.control.scale().addTo(map);
 
-L.Routing.control({
-    waypoints: [
-        L.latLng(52.421398, -0.514498),
-        L.latLng(52.789661, -0.150343)
-    ],
-    routeWhileDragging: true
-}).addTo(map);
+// User Marker
+// via https://stackoverflow.com/questions/46554481/possible-to-add-user-submitted-marker-to-a-leaflet-map-via-submit-button
+// var currentMarker;
+
+// map.on("click", function (event) {
+//    if (currentMarker) {
+//     currentMarker._icon.style.transition = "transform 0.3s ease-out";
+//     currentMarker._shadow.style.transition = "transform 0.3s ease-out";        
+//     currentMarker.setLatLng(event.latlng);
+
+//     setTimeout(function () {
+//         currentMarker._icon.style.transition = null;
+//         currentMarker._shadow.style.transition = null;
+//     }, 300);
+//     return;
+// }
+
+// currentMarker = L.marker(event.latlng, {
+//     draggable: true,          
+// // })    
+// }).addTo(map).on("click", function (e) {
+//     map.setView(e.latlng, 10);
+//     alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
+//     event.originalEvent.stopPropagation();
+// }).bindPopup('this is a user defined marker');
+// });
 
 
-console.log(JSON.stringify(landmarkData));
+
+// Initialise the FeatureGroup to store editable layers
+var drawnItems = new L.FeatureGroup();
+map.addLayer(drawnItems);
+
+// Initialise the draw control and pass it the FeatureGroup of editable layers
+var drawControl = new L.Control.Draw({
+    edit: {
+        featureGroup: drawnItems
+    },
+    draw: {
+        circle: false,
+        rectangle: false,
+        circlemarker: false,
+        polygon: false,
+        polyline: {
+            metric: false,
+            feet: false
+        }
+    }
+});
+
+map.addControl(drawControl);
+
+map.on('draw:created', function (e) {
+    var type = e.layerType,
+        layer = e.layer;
+    if (type === 'marker') {
+        layer.bindPopup('A popup!');
+    }
+    drawnItems.addLayer(layer);
+});
+
+
+map.on('draw:created', showLineDistance);
+// map.on('draw:edited', showPolygonAreaEdited);
+
+function showDistanceMiles(e) {
+    return L.GeometryUtil.readableDistance(e, false, false, false);
+}
+
+
+function showLineDistance(e) {
+    var type = e.layerType,
+        layer = e.layer;
+
+    if (type === 'polyline') {
+
+        latLngs = layer._latlngs;
+
+        console.log(latLngs);
+
+        previousPoint = null
+        totalDistance = 0
+
+        layer.getLatLngs().forEach(function (latLng) {
+            if (previousPoint) {
+                currentDistance = previousPoint.distanceTo(latLng)
+                totalDistance = totalDistance += currentDistance
+
+                L.marker(latLng).bindPopup(
+                    'Distance from previous point: '
+                    + showDistanceMiles(currentDistance)
+                    + '<br>'
+                    + 'Total Distance: '
+                    + showDistanceMiles(totalDistance)
+                ).addTo(map);
+
+            }
+            previousPoint = latLng;
+        });
+        // have a 'total distance' value
+        // figure out how to display it on hover.
+
+
+    }
+}
