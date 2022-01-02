@@ -337,34 +337,9 @@ L.control.layers(baseMaps, overlayMaps).addTo(map);
 
 L.control.scale().addTo(map);
 
-// User Marker
-// via https://stackoverflow.com/questions/46554481/possible-to-add-user-submitted-marker-to-a-leaflet-map-via-submit-button
-// var currentMarker;
-
-// map.on("click", function (event) {
-//    if (currentMarker) {
-//     currentMarker._icon.style.transition = "transform 0.3s ease-out";
-//     currentMarker._shadow.style.transition = "transform 0.3s ease-out";        
-//     currentMarker.setLatLng(event.latlng);
-
-//     setTimeout(function () {
-//         currentMarker._icon.style.transition = null;
-//         currentMarker._shadow.style.transition = null;
-//     }, 300);
-//     return;
-// }
-
-// currentMarker = L.marker(event.latlng, {
-//     draggable: true,          
-// // })    
-// }).addTo(map).on("click", function (e) {
-//     map.setView(e.latlng, 10);
-//     alert("Lat, Lon : " + e.latlng.lat + ", " + e.latlng.lng)
-//     event.originalEvent.stopPropagation();
-// }).bindPopup('this is a user defined marker');
-// });
-
-
+// Let users draw polylines and provide distance measures
+// This is using Leaflet.Draw functionality.
+//  https://leaflet.github.io/Leaflet.draw/docs/leaflet-draw-latest.html
 
 // Initialise the FeatureGroup to store editable layers
 var drawnItems = new L.FeatureGroup();
@@ -389,23 +364,23 @@ var drawControl = new L.Control.Draw({
 
 map.addControl(drawControl);
 
+// Let users click and get a popup with lat/long? 
 map.on('draw:created', function (e) {
     var type = e.layerType,
         layer = e.layer;
-    if (type === 'marker') {
-        layer.bindPopup('A popup!');
-    }
     drawnItems.addLayer(layer);
 });
 
-
 map.on('draw:created', showLineDistance);
-// map.on('draw:edited', showPolygonAreaEdited);
+map.on('draw:edited', editShownLineDistance);
+map.on('draw:deleted', listDeletedLineDistanceMarkers); 
+
+
+// add a function to delete all markers when the underlying feature is deleted
 
 function showDistanceMiles(e) {
     return L.GeometryUtil.readableDistance(e, false, false, false);
 }
-
 
 function showLineDistance(e) {
     var type = e.layerType,
@@ -415,15 +390,16 @@ function showLineDistance(e) {
 
         latLngs = layer._latlngs;
 
-        console.log(latLngs);
-
         previousPoint = null
         totalDistance = 0
 
         layer.getLatLngs().forEach(function (latLng) {
             if (previousPoint) {
-                currentDistance = previousPoint.distanceTo(latLng)
-                totalDistance = totalDistance += currentDistance
+                // if we have a previous point that isn't null, measure the distance between the two
+
+                // fudge the maths because our coordinate grid is a little too big compared to the map scale in the legend. 
+                currentDistance = ( previousPoint.distanceTo(latLng) / 1.04 );
+                totalDistance = totalDistance += currentDistance;
 
                 L.marker(latLng).bindPopup(
                     'Distance from previous point: '
@@ -433,12 +409,58 @@ function showLineDistance(e) {
                     + showDistanceMiles(totalDistance)
                 ).addTo(map);
 
+            } else {
+                // if there is no previous point, this must be where we start.
+                L.marker(latLng).bindPopup(
+                    'Journey begins' 
+                ).addTo(map);
             }
+
+            // now set the previous point, so we can measure distance from it on the next hop.
             previousPoint = latLng;
         });
-        // have a 'total distance' value
-        // figure out how to display it on hover.
-
-
     }
+}
+
+// referring to https://coderedirect.com/questions/547543/how-to-calculate-the-distance-of-a-polyline-in-leaflet-like-geojson-io
+function editShownLineDistance(e) {
+    e.layers.eachLayer(function(layer) {
+        showLineDistance({ layer: layer });
+    });
+}
+
+function deleteLineDistanceMarkers(e) {
+    console.log('lets delete some distance markers now!');
+
+    var type = e.layerType,
+    layer = e.layer;
+
+    // cool!! i didn't know that this existed!
+    // console.table(e);
+    latLngs = layer._latlngs;
+
+    console.table(latLngs);
+
+    // see if there is a marker at that point. if so delete it.
+    layer.getLatLngs().forEach(function (latLng) {
+        console.log('latLng is: ' + latLng);
+        if (typeof L.marker(latLng) != "undefined") {
+
+            targetMarker = L.marker(latLng);
+            console.table(targetMarker); 
+
+            map.removeLayer(targetMarker);
+
+            // console.log('im sorry im trying to delete');
+            // console.table( L.marker(latLng) );
+            // L.marker(latLng).bindPopup('my parent line has been deleted');
+        }
+    });
+}
+
+
+function listDeletedLineDistanceMarkers(e) {
+    e.layers.eachLayer(function(layer) {
+        deleteLineDistanceMarkers({ layer: layer });
+    });
 }
