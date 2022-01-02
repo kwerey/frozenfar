@@ -335,7 +335,8 @@ var overlayMaps = {
 // Add layers to map
 L.control.layers(baseMaps, overlayMaps).addTo(map);
 
-L.control.scale().addTo(map);
+// Disabling scale since we have a scale marker and distance measurement tools now.
+// L.control.scale().addTo(map);
 
 // Let users draw polylines and provide distance measures
 // This is using Leaflet.Draw functionality.
@@ -373,10 +374,6 @@ map.on('draw:created', function (e) {
 
 map.on('draw:created', showLineDistance);
 map.on('draw:edited', editShownLineDistance);
-map.on('draw:deleted', listDeletedLineDistanceMarkers); 
-
-
-// add a function to delete all markers when the underlying feature is deleted
 
 function showDistanceMiles(e) {
     return L.GeometryUtil.readableDistance(e, false, false, false);
@@ -401,23 +398,26 @@ function showLineDistance(e) {
                 currentDistance = ( previousPoint.distanceTo(latLng) / 1.04 );
                 totalDistance = totalDistance += currentDistance;
 
-                L.marker(latLng).bindPopup(
+                currentMarker = L.marker(latLng).bindPopup(
                     'Distance from previous point: '
                     + showDistanceMiles(currentDistance)
                     + '<br>'
                     + 'Total Distance: '
                     + showDistanceMiles(totalDistance)
-                ).addTo(map);
+                );
+
+                currentMarker.addTo(drawnItems);
 
             } else {
                 // if there is no previous point, this must be where we start.
                 L.marker(latLng).bindPopup(
                     'Journey begins' 
-                ).addTo(map);
+                ).addTo(drawnItems);
             }
 
             // now set the previous point, so we can measure distance from it on the next hop.
             previousPoint = latLng;
+
         });
     }
 }
@@ -426,41 +426,5 @@ function showLineDistance(e) {
 function editShownLineDistance(e) {
     e.layers.eachLayer(function(layer) {
         showLineDistance({ layer: layer });
-    });
-}
-
-function deleteLineDistanceMarkers(e) {
-    console.log('lets delete some distance markers now!');
-
-    var type = e.layerType,
-    layer = e.layer;
-
-    // cool!! i didn't know that this existed!
-    // console.table(e);
-    latLngs = layer._latlngs;
-
-    console.table(latLngs);
-
-    // see if there is a marker at that point. if so delete it.
-    layer.getLatLngs().forEach(function (latLng) {
-        console.log('latLng is: ' + latLng);
-        if (typeof L.marker(latLng) != "undefined") {
-
-            targetMarker = L.marker(latLng);
-            console.table(targetMarker); 
-
-            map.removeLayer(targetMarker);
-
-            // console.log('im sorry im trying to delete');
-            // console.table( L.marker(latLng) );
-            // L.marker(latLng).bindPopup('my parent line has been deleted');
-        }
-    });
-}
-
-
-function listDeletedLineDistanceMarkers(e) {
-    e.layers.eachLayer(function(layer) {
-        deleteLineDistanceMarkers({ layer: layer });
     });
 }
